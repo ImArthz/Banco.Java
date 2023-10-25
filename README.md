@@ -16,9 +16,8 @@ Neste repositório, você encontrará um conjunto de classes em Java que modelam
 
 - `Transacao`: Classe que representa uma transação bancária, incluindo a data, o valor e a descrição.
 
-- `Banco`: Classe que representa um banco e permite criar contas, fazer depósitos, saques e visualizar extratos.
+- `Banco`:  O programa principal que interage com o usuário para criar contas e realizar operações bancárias.
 
-- `Main`: O programa principal que interage com o usuário para criar contas e realizar operações bancárias.
 
 ## Como Executar
 
