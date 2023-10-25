@@ -12,8 +12,8 @@ class ContaCorrentePremium extends ContaBancaria {
         super(nome, numero_da_conta, saldo);
         this.limiteCredito = limiteCredito;
     }
-
-    public boolean saque(float valorSaque) {
+    
+    public boolean saque(float valorSaque,int numero_da_conta) {
         try {
             if (valorSaque < 0) {
                 System.err.println("Erro: O valor do saque deve ser maior que zero.");
@@ -54,7 +54,7 @@ class ContaCorrentePremium extends ContaBancaria {
             return false;
         }
     }
-
+    
     public void GerarExtrato() {
         DecimalFormat df = new DecimalFormat("0.00"); // Formatação para duas casas decimais
         System.out.println("--------------------EXTRATO----------------------------");

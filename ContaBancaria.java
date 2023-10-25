@@ -81,4 +81,10 @@ class ContaBancaria {
     }
         
     }
+    public  void gerarExtrato(){}
+    public  boolean saque(float valorSaque,int numero_da_conta){
+        return false;
+        
+    }
+
 }

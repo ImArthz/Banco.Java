@@ -17,8 +17,8 @@ class ContaInvestimento extends ContaBancaria {
     public void setTaxaRetornoAnual(float taxaRetornoAnual) {
         this.taxaRetornoAnual = taxaRetornoAnual;
     }
-
-    public boolean saque(float valorSaque) {
+    
+    public boolean saque(float valorSaque,int numero_da_conta) {
         try {
             if (valorSaque < 0) {
                 System.err.println("Erro: O valor do saque deve ser maior que zero.");
@@ -58,7 +58,7 @@ class ContaInvestimento extends ContaBancaria {
             return false;
         }
     }
-
+    
     public void GerarExtrato() {
         System.out.println("--------------------EXTRATO----------------------------");
         System.out.println("Numero da Conta: " + numero_da_conta);

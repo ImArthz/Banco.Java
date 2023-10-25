@@ -21,8 +21,8 @@ class ContaPoupanca extends ContaBancaria {
     public LocalDate getDiaAniversario() {
         return diaAniversario;
     }
-
-    public boolean saque(float valorSaque) {
+    
+    public boolean saque(float valorSaque,int numero_da_conta) {
         try {
             if (valorSaque < 0) {
                 System.err.println("Erro: O valor do saque deve ser maior que zero.");
@@ -62,7 +62,7 @@ class ContaPoupanca extends ContaBancaria {
             return false;
         }
     }
-
+    
     public void GerarExtrato() {
         DecimalFormat df = new DecimalFormat("0.00"); // Formatação para duas casas decimais
         System.out.println("--------------------EXTRATO----------------------------");

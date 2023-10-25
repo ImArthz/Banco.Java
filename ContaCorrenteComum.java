@@ -9,7 +9,7 @@ class ContaCorrenteComum extends ContaBancaria {
     public ContaCorrenteComum(String nome, int numero_da_conta, float saldo) {
         super(nome, numero_da_conta, saldo);
     }
-
+    
     public void GerarExtrato() {
     DecimalFormat df = new DecimalFormat("0.00"); // Formatação para duas casas decimais
         System.out.println("--------------------EXTRATO----------------------------");
@@ -18,8 +18,9 @@ class ContaCorrenteComum extends ContaBancaria {
         System.out.println("Saldo : R$" + df.format(saldo)); // Formatando o saldo
         Imprimi_transacao(); // Reutilize o método de impressão de transações da classe pai
     }
-
-    public boolean saque(float valorSaque) {
+    
+    
+    public boolean saque(float valorSaque,int numero_da_conta) {
         try {
             if (valorSaque < 0) {
                 System.err.println("Erro: O valor do saque deve ser maior que zero.");
