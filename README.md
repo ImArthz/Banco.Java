@@ -1,4 +1,4 @@
-# README - Código de Contas Bancárias
+# Código de Contas Bancárias
 
 Neste repositório, você encontrará um conjunto de classes em Java que modelam contas bancárias, um banco e um programa principal que interage com essas classes para criar contas, fazer depósitos, saques e visualizar extratos.
 
