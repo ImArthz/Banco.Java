@@ -2,6 +2,12 @@
 
 Neste repositório, você encontrará um conjunto de classes em Java que modelam contas bancárias, um banco e um programa principal que interage com essas classes para criar contas, fazer depósitos, saques e visualizar extratos.
 
+## Diagrama de Classes
+
+Abaixo está o diagrama de classes do projeto:
+
+![Diagrama de Classes]((https://github.com/ImArthz/Banco.Java/blob/main/DiagramaClasses.png)
+
 ## Estrutura do Código
 
 - `ContaBancaria`: Classe base para representar uma conta bancária. Contém métodos para adicionar transações, realizar depósitos, sacar dinheiro e gerar extratos.
