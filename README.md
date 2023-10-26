@@ -6,7 +6,7 @@ Neste repositório, você encontrará um conjunto de classes em Java que modelam
 
 Abaixo está o diagrama de classes do projeto:
 
-![Diagrama de Classes]((https://github.com/ImArthz/Banco.Java/blob/main/DiagramaClasses.png)
+![Diagrama de Classes](https://github.com/ImArthz/Banco.Java/blob/main/DiagramaClasses.png)
 
 ## Estrutura do Código
 
