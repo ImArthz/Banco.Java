@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 class ContaBancaria {
@@ -41,50 +40,61 @@ class ContaBancaria {
         this.transacoes = new ArrayList<>();
     }
 
-    public void adicionarTransacao(LocalDate data, float valor, String descricao) {
-        Transacao transacao = new Transacao(data, valor, descricao);
+    public void adicionarTransacao(float valor, String descricao) {
+        LocalDateTime dataHoraAtual = LocalDateTime.now();
+        Transacao transacao = new Transacao(dataHoraAtual, valor, descricao);
         transacoes.add(transacao);
     }
 
-    public void deposito(LocalDate data, float valorDeposito) {
+    public boolean deposito(float valorDeposito) {
         try {
             if (valorDeposito <= 0) {
                 throw new IllegalArgumentException("O valor do depósito deve ser maior que zero.");
             }
+
             this.saldo += valorDeposito;
-            String descricao = "Depósito efetuado na conta " + numero_da_conta + " Titular: " + nome + " na data: " + data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + " no valor de R$" + valorDeposito;
-            Transacao transacao = new Transacao(data, valorDeposito, descricao);
+
+            LocalDateTime dataHoraAtual = LocalDateTime.now();
+            String descricao = "Depósito efetuado na conta " + numero_da_conta + " Titular: " + nome + " na data e hora: " + dataHoraAtual.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")) + " no valor de R$" + valorDeposito;
+
+            Transacao transacao = new Transacao(dataHoraAtual, valorDeposito, descricao);
             transacoes.add(transacao);
-            System.out.println("Depósito de R$" + valorDeposito + " realizado com sucesso na data: " + data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+            System.out.println("Depósito de R$" + valorDeposito + " realizado com sucesso na data e hora: " + dataHoraAtual.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
+
+            return true;
         } catch (IllegalArgumentException e) {
             System.err.println("Erro: " + e.getMessage());
+            return false;
         }
     }
-    public boolean Imprimi_transacao(){
+
+    public boolean Imprimi_transacao() {
         try {
-        if (transacoes.isEmpty()) {
-            System.out.println("Não há transações para imprimir.");
+            if (transacoes.isEmpty()) {
+                System.out.println("Não há transações para imprimir.");
+                return true; // Indica que a operação foi bem-sucedida
+            }
+
+            for (Transacao transacao : transacoes) {
+                System.out.println("Data e hora: " + transacao.getDataHora().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
+                System.out.println("Valor: R$" + transacao.getValor());
+                System.out.println("Descrição: " + transacao.getDescricao());
+                System.out.println("---------------------------------------");
+            }
+
             return true; // Indica que a operação foi bem-sucedida
+        } catch (Exception e) {
+            System.err.println("Erro: " + e.getMessage());
+            return false; // Indica que ocorreu um erro durante a operação
         }
-
-        for (Transacao transacao : transacoes) {
-            System.out.println("Data: " + transacao.getData().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-            System.out.println("Valor: R$" + transacao.getValor());
-            System.out.println("Descrição: " + transacao.getDescricao());
-            System.out.println("---------------------------------------");
-        }
-
-        return true; // Indica que a operação foi bem-sucedida
-    } catch (Exception e) {
-        System.err.println("Erro: " + e.getMessage());
-        return false; // Indica que ocorreu um erro durante a operação
     }
-        
+
+    public void gerarExtrato() {
+        //apenas para sobrescrever
     }
-    public  void gerarExtrato(){}
-    public  boolean saque(float valorSaque,int numero_da_conta){
+
+    public boolean saque(float valorSaque, int numero_da_conta) {
+        //apenas para sobrescrever
         return false;
-        
     }
-
 }

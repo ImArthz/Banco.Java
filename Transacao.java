@@ -1,18 +1,18 @@
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 class Transacao {
-    private LocalDate data;
+    private LocalDateTime dataHora;
     private float valor;
     private String descricao;
 
-    public Transacao(LocalDate data, float valor, String descricao) {
-        this.data = data;
+    public Transacao(LocalDateTime dataHora, float valor, String descricao) {
+        this.dataHora = dataHora;
         this.valor = valor;
         this.descricao = descricao;
     }
 
-    public LocalDate getData() {
-        return data;
+    public LocalDateTime getDataHora() {
+        return dataHora;
     }
 
     public float getValor() {
